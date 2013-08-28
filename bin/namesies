@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'namesies'
+
+Namesies::CLI.start(ARGV)
