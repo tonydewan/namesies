@@ -1,12 +1,17 @@
 # Namesies
 
-TODO: Write a gem description
+Naming things is hard. Namesies makes it a little bit easier by searching all the places for you. CLI only, for now. Currently searches:
+
+* Domains (using domai.nr)
+* Twitter usernames
+* Trademarks (US, live)
+* RubyGems
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'namesies'
+    gem 'namesies', :git => 'git://github.com/tonydewan/namesies.git'
 
 And then execute:
 
@@ -18,7 +23,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Search for a thing at all the things:
+
+    $ namesies search namesies
 
 ## Contributing
 
