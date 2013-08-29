@@ -10,12 +10,13 @@ Gem::Specification.new do |spec|
   spec.email         = ["tony.dewan@gmail.com"]
   spec.description   = "Naming things is hard. Namesies make's it a little easier."
   spec.summary       = "Search ALL THE THINGS when trying to name things."
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/tonydewan/namesies"
   spec.license       = "MIT"
 
   spec.files         = [
     "lib/namesies.rb",
     "lib/namesies/version.rb",
+    "lib/namesies/reporter.rb",
     "lib/namesies/cli.rb",
     "lib/namesies/domain.rb",
     "lib/namesies/twitter.rb",

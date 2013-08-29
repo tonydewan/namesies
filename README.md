@@ -4,7 +4,7 @@ Naming things is hard. Namesies makes it a little bit easier by searching all th
 
 * Domains (using domai.nr)
 * Twitter usernames
-* Trademarks (US, live)
+* Trademarks (US, live only)
 * RubyGems
 
 ## Installation

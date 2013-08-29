@@ -4,6 +4,7 @@ module Namesies
   class Trademark
 
     def self.search(query)
+      reporter = Namesies::Reporter.new('Trademark')
       agent = Mechanize.new
       agent.user_agent_alias = 'Mac Safari'
 
@@ -18,15 +19,13 @@ module Namesies
 
       page = form.submit
 
-      puts "trademark: "
-
       if page.body.include? 'No TESS records were found'
-        puts "No trademarks match".green
+        reporter.result "No trademarks match #{query}", "green"
       elsif page.body.include? 'Record 1 out of 1'
-        puts "1 related live trademark found".red
+        reporter.result "1 related live trademark found", "red"
       else
         result_count = page.body.match(/docs: (\d+) occ: (\d+)/)[1]
-        puts "#{result_count} related live trademarks found".red
+        reporter.result "#{result_count} related live trademarks found", "red"
       end
 
     end
