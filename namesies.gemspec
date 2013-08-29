@@ -16,13 +16,20 @@ Gem::Specification.new do |spec|
   spec.files         = [
     "lib/namesies.rb",
     "lib/namesies/version.rb",
-    "lib/namesies/cli.rb"
+    "lib/namesies/cli.rb",
+    "lib/namesies/domain.rb",
+    "lib/namesies/twitter.rb",
+    "lib/namesies/trademark.rb",
+    "lib/namesies/rubygems.rb"
   ]
   spec.executables   = ["namesies"]
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
   spec.add_dependency "thor"
+  spec.add_dependency "colorize"
+  spec.add_dependency "gems"
+  spec.add_dependency "mechanize"
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"

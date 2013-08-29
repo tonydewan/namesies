@@ -5,7 +5,11 @@ module Namesies
 
     desc "search QUERY", "search all services for QUERY"
     def search(q)
-      puts "#{q}"
+      puts "checking #{q}..."
+      Namesies::Domain.search(q)
+      Namesies::Twitter.search(q)
+      Namesies::RubyGems.search(q)
+      Namesies::Trademark.search(q)
     end
 
     desc "s QUERY", "alias for search QUERY"
