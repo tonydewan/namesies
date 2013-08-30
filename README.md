@@ -11,7 +11,7 @@ Naming things is hard. Namesies makes it a little bit easier by searching all th
 
 Add this line to your application's Gemfile:
 
-    gem 'namesies', :git => 'git://github.com/tonydewan/namesies.git'
+    gem 'namesies'
 
 And then execute:
 
@@ -26,6 +26,18 @@ Or install it yourself as:
 Search for a thing at all the things:
 
     $ namesies search namesies
+
+Only want to search Twitter?
+
+    $ namesies search tonydewan --only twitter
+
+Want to skip trademark seach?
+
+    $ namesies search tonydewan --except trademark
+
+See what services are supported:
+
+    $ namesies services
 
 ## Contributing
 
