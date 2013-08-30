@@ -1,7 +1,7 @@
 require 'gems'
 
 module Namesies
-  class RubyGems
+  class Rubygems
 
     def self.search(query)
       reporter = Namesies::Reporter.new('RubyGems')
