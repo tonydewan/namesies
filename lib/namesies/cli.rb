@@ -14,9 +14,12 @@ module Namesies
       puts "\n"
     end
 
-    desc "s QUERY", "alias for search QUERY"
-    def s(q)
-      search(q)
+    desc "services", "list all currently searchable services"
+    def services
+      puts "Namesies currently searches:"
+      Namesies.constants.each do |service|
+        puts "  #{service}" unless [:VERSION, :CLI].include? service
+      end
     end
   end
 end
