@@ -9,15 +9,18 @@ module Namesies
     def search(q)
       puts "Searching for #{q}..."
       puts "\n"
+
+      services = Namesies.constants - [:VERSION, :CLI, :Reporter]
+
       if options[:only]
         options[:only].each do |service|
           Namesies.const_get(service.capitalize).send(:search, q)
         end
       else
-        Namesies::Domain.search(q) unless options[:except].include? 'domain'
-        Namesies::Twitter.search(q) unless options[:except].include? 'twitter'
-        Namesies::Trademark.search(q) unless options[:except].include? 'trademark'
-        Namesies::Rubygems.search(q) unless options[:except].include? 'rubygems'
+        services.each do |service|
+          next if options[:except] && options[:except].include?(service.to_s.downcase)
+          Namesies.const_get(service.capitalize).send(:search, q)
+        end
       end
 
       puts "\n"
@@ -27,7 +30,7 @@ module Namesies
     def services
       puts "Namesies currently searches:"
       Namesies.constants.each do |service|
-        puts "  #{service}" unless [:VERSION, :CLI].include? service
+        puts "  #{service}" unless [:VERSION, :CLI, :Reporter].include? service
       end
     end
   end
