@@ -7,7 +7,7 @@ module Namesies
     def self.search(query)
       reporter = Namesies::Reporter.new('Domains')
 
-      response = Net::HTTP.get(URI("https://domai.nr/api/json/search?q=#{query}"))
+      response = Net::HTTP.get(URI("https://domai.nr/api/json/search?q=#{URI.escape query}"))
       results = JSON.parse(response)['results']
       available = results.map{|d| d if d['availability'] == "available" }.compact
       
