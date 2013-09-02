@@ -8,9 +8,16 @@ module Namesies
       @title = title
     end
 
-    def result(result, color)
-      color ||= 'white'
-      puts "  #{@title}: " + result.send(color)
+    def result(result, color = nil)
+      out = "  #{@title}: "
+
+      if color
+        out += result.send(color)
+      else
+        out += result
+      end
+
+      puts out
     end
 
     def recommendation(rec)

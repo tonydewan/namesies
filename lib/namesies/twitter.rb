@@ -5,6 +5,12 @@ module Namesies
 
     def self.search(query)
       reporter = Namesies::Reporter.new('Twitter')
+
+      if query.match(/\s/)
+        reporter.result "Can't search Twitter for usernames with spaces"
+        return
+      end
+
       response = Net::HTTP.get_response(URI("https://twitter.com/#{query}"))
 
       case response.code
